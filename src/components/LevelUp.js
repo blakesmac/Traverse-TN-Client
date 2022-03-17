@@ -8,7 +8,7 @@ import { Register } from "./auth/Register"
 export const LevelUp = () => (
     <>
         <Route render={() => {
-            if (localStorage.getItem("lu_token")) {
+            if (localStorage.getItem("tt_token")) {
                 return <>
                     <Route>
                         <NavBar />
