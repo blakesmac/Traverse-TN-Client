@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import "./NavBar.css"
 
 export const NavBar = () => {
@@ -7,20 +8,26 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                Navigation link
+                <Link classname="nav-link" to="/trip">Trips</Link>
             </li>
             <li className="navbar__item">
-                Navigation link
+                <Link classname="nav-link" to="/river">Rivers</Link>
             </li>
             <li className="navbar__item">
-                Navigation link
+                <Link classname="nav-link" to="place">Places</Link>
+            </li>
+            <li className="navbar__item">
+                <Link classname="nav-link" to="favorites">Favorites</Link>
+            </li>
+            <li className="navbar__item">
+                <Link classname="nav-link" to="member">Profile</Link>
             </li>
             {
-                (localStorage.getItem("lu_token") !== null) ?
+                (localStorage.getItem("tt_token") !== null) ?
                     <li className="nav-item">
                         <button className="nav-link fakeLink"
                             onClick={() => {
-                                localStorage.removeItem("lu_token")
+                                localStorage.removeItem("tt_token")
                                 history.push({ pathname: "/" })
                             }}
                         >Logout</button>
