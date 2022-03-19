@@ -33,6 +33,7 @@ export const TripProvider = (props) => {
             method: "PUT",
             headers: {
                 Authorization: `Token ${localStorage.getItem("tt_token")}`,
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(trip)
         })
@@ -44,6 +45,7 @@ export const TripProvider = (props) => {
             method: "DELETE",
             headers: {
                 Authorization: `Token ${localStorage.getItem("tt_token")}`,
+                "Content-Type": "application/json"
             },
         })
             .then(getTrips)

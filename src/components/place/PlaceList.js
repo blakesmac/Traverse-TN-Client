@@ -22,7 +22,8 @@ export const PlaceList = () => {
                         <div>Name: {place.address}</div>
                         <div>Wildlife: {place.wildlife}</div>
                         <div>About: {place.about}</div>
-                        <div>Members who have visited: {place.visitors}</div>
+                        <div>Members who have visited: {place.visitors.map((visitor)=>
+                        visitor?.user.username)}</div>
                     </section>
                 )
             })}
