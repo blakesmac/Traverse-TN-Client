@@ -17,15 +17,15 @@ export const RiverList = () => {
             </header>
             {rivers.map((river) => {
                 return (
-                    <section className="river">
-                        <div className="river_name"></div>
-                        <div>Name: {river.title}</div>
-                        <div>Address: {river.address}</div>
-                        <div>Fish Species: {river.fish}</div>
-                        <div>Wildlife: {river.animals}</div>
-                        <div>About: {river.about}</div>
-                        <div>Flowchart: {river.flowhchart}</div>
-                        <div>Members who have visited: {river.visitors}</div>
+                    <section className="river" key={river.id}>
+                        <div className="river_title">{river.title}</div>
+                        <div className="river_address">Address: {river.address}</div>
+                        <div className="river_fish">Fish Species: {river.fish}</div>
+                        <div className="river_animals">Wildlife: {river.animals}</div>
+                        <div className="river_about">About: {river.about}</div>
+                        <div className="river_flowchart">Flowchart: {river.flowchart}</div>
+                        <div className="river_visitors">Members who have visited: {river.visitors.map((visitor)=>
+                        visitor?.user.username)}</div>
                     </section>
                 )
             })}

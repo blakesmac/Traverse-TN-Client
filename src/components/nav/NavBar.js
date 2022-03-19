@@ -8,19 +8,19 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                <Link classname="nav-link" to="/trip">Trips</Link>
+                <Link className="nav-link" to="/trip">Trips</Link>
             </li>
             <li className="navbar__item">
-                <Link classname="nav-link" to="/river">Rivers</Link>
+                <Link className="nav-link" to="/river">Rivers</Link>
             </li>
             <li className="navbar__item">
-                <Link classname="nav-link" to="place">Places</Link>
+                <Link className="nav-link" to="place">Places</Link>
             </li>
             <li className="navbar__item">
-                <Link classname="nav-link" to="favorites">Favorites</Link>
+                <Link className="nav-link" to="favorites">Favorites</Link>
             </li>
             <li className="navbar__item">
-                <Link classname="nav-link" to="member">Profile</Link>
+                <Link className="nav-link" to="member">Profile</Link>
             </li>
             {
                 (localStorage.getItem("tt_token") !== null) ?

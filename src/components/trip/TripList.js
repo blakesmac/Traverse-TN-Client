@@ -1,4 +1,5 @@
-import React, {useContext, useEffect } from "react"
+import React, {useContext, useEffect, useState } from "react"
+import { useParams } from "react-router";
 import { TripContext } from "./TripProvider"
 import { useHistory } from "react-router"
 import { RiverContext } from "../river/RiverProvider";
@@ -6,19 +7,32 @@ import { PlaceContext } from "../place/PlaceProvider";
 
 
 export const TripList = () => {
-    const { trips, getTrips } = useContext(TripContext);
+    const { trips, getTrips, deleteTrip } = useContext(TripContext);
+    const [trip, setTrip] = useState([])
     const { rivers, getRivers } = useContext(RiverContext);
     const { places, getPlaces } = useContext(PlaceContext);
     const history = useHistory()
-
+    const {tripId} =useParams()
 
     useEffect(() => {
+        getTrips();
         getRivers();
-    }, []);
-
-    useEffect(() => {
         getPlaces();
     }, []);
+
+    const handleDelete = () => {
+        deleteTrip(tripId)
+        .then(() => {
+            history.push(`/trip`)
+        })
+    }
+    // useEffect(() => {
+    //     getRivers();
+    // }, []);
+
+    // useEffect(() => {
+    //     getPlaces();
+    // }, []);
 
 
 
@@ -33,18 +47,25 @@ export const TripList = () => {
                         <section key={`trip--${trip.id}`}>
                             <div>
                                 <button
-                                    onClick={() => history.push(`/trips/${trip.id}/edit`)}
+                                    onClick={() => history.push(`/trip/edit/${trip.id}`)}
                                 >
                                     Edit
                                 </button>
                             </div>
+                            <section className="trip_section">
+                                <div> Title: {trip.title}</div>
+                                <div> River: {trip.river.title}</div>
+                                <div> Place: {trip.place.about}</div>
+                                <div> Date: {trip.date}</div>
+                                <div> memberId: {trip.member?.user}</div>
+                            </section>
                             <div>
-
-                                <p> Title: {trip.title}</p>
-                                <p> River: {trip.river}</p>
-                                <p> Place: {trip.place}</p>
-                                <p> Date: {trip.date}</p>
-                                <p> memberId: {trip.memberId}</p>
+                                <button onClick={event => {
+                                    event.preventDefault()
+                                    handleDelete()
+                                }}>
+                                    Delete
+                                </button>
                             </div>
                         </section>
                     )

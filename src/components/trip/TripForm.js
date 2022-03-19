@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState } from "react"
 import { TripContext } from "./TripProvider"
-import { useHistory } from "react-router"
+import { useHistory, useParams } from "react-router"
 import { RiverContext } from "../river/RiverProvider"
 import { PlaceContext } from "../place/PlaceProvider"
 
@@ -12,7 +12,8 @@ export const TripForm = () => {
     const currentUser = parseInt(sessionStorage.getItem("tt_token"))
     const {rivers, getRivers} = useContext(RiverContext)
     const { places, getPlaces} = useContext(PlaceContext)
-
+    const { tripId} = useParams()
+    const [isLoading, setIsLoading] = useState(true);
 
     const [currentTrip, setCurrentTrip] = useState({
         title: "",
@@ -25,7 +26,7 @@ export const TripForm = () => {
 
     const editInputChange = (event) => {
         const newTrip = {...currentTrip}
-        newTrip[event.target.value] = event.target.value
+        newTrip[event.target.id] = event.target.value
         setCurrentTrip(newTrip)
     }
 
@@ -38,10 +39,11 @@ export const TripForm = () => {
     }, [])
 
 
-    const saveTrip = () => {
+    const saveTrip = (e) => {
+        e.preventDefault()
         setIsLoading(true);
         if (tripId) {
-            updateTrip({
+            editTrip({
                 id: parseInt(tripId),
                 title: currentTrip.title,
                 river: currentTrip.river,
@@ -52,7 +54,7 @@ export const TripForm = () => {
             })
                 .then(() => history.push(`/trip`))
         } else {
-            addTrip({
+            createTrip({
                 title: currentTrip.title,
                 river: currentTrip.river,
                 place: currentTrip.place,
@@ -73,6 +75,7 @@ export const TripForm = () => {
                         <label htmlFor="title">Title</label> <br />
                         <input
                             type="text"
+                            id="title"
                             name="title"
                             required
                             autoFocus
@@ -83,8 +86,8 @@ export const TripForm = () => {
                 </fieldset>
                 <fieldset>
                     <div>
-                        <select htmlFor="river" onChange={editInputChange}
-                            value={parseInt(currentTrip.river)} defaultValue={parseInt(currentTrip.river)}>
+                        <select htmlFor="river" onChange={editInputChange} id="river"
+                            defaultValue={parseInt(currentTrip.river)}>
                             <option>Select River</option>
                             {rivers.map(river => (
                                 <option
@@ -99,8 +102,8 @@ export const TripForm = () => {
                 </fieldset>
                 <fieldset>
                     <div>
-                        <select htmlFor="place" onChange={editInputChange}
-                            value={parseInt(currentTrip.place)} defaultValue={parseInt(currentTrip.river)}>
+                        <select htmlFor="place" onChange={editInputChange} id="place"
+                            defaultValue={parseInt(currentTrip.place)}>
                             <option>Select Place</option>
                             {places.map(place => (
                                 <option
@@ -116,12 +119,54 @@ export const TripForm = () => {
                 <fieldset>
                     <div>
                         <label htmlFor="date">Date of Trip:</label>
-                        {currentTrip.date}
+                        <input type="date" id="date" name="date" required autoFocus className="form-control"
+                        placeholder="Choose Date" onChange={editInputChange} default={currentTrip.date}/>
+                        
                     </div>
                 </fieldset>
+                <button className='btn-tripform-save' onClick={saveTrip}>Save</button>
+                <button className='btntripform--cancel' onClick={() => {history.push('/trip')}}>Cancel</button>
+            
+
             </form>
         </>
     );
 
 
 }
+
+
+{/* <button size="sm" className="btn_tripform" disabled={isLoading} onClick={event => {
+                    event.preventDefault()
+                    saveTrip()
+                }}>
+                    {tripId ? <>Save Trip</> : <>Add Trip</> }
+                </button> */}
+
+{/* <button
+        type="submit"
+        onClick={(evt) => {
+          // Prevent form from being submitted
+          evt.preventDefault();
+
+          const post = {
+            id: parseInt(postId),
+            categoryId: parseInt(currentPost.categoryId),
+            title: currentPost.title,
+            publicationDate: currentPost.publicationDate,
+            imageUrl: currentPost.imageUrl,
+            content: currentPost.content,
+          };
+          // Send POST request to your API
+          {
+            postId ? editPostById(post).then(() => history.push("/posts")) :
+              createPost(post).then(() => history.push("/posts"))
+          }
+        }}
+        className="create-post-button"
+      >
+        Create
+      </button>
+    </form>
+  );
+}; */}
