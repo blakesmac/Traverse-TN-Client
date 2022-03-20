@@ -16,9 +16,9 @@ export const NavBar = () => {
             <li className="navbar__item">
                 <Link className="nav-link" to="place">Places</Link>
             </li>
-            <li className="navbar__item">
+            {/* <li className="navbar__item">
                 <Link className="nav-link" to="favorites">Favorites</Link>
-            </li>
+            </li> */}
             <li className="navbar__item">
                 <Link className="nav-link" to="member">Profile</Link>
             </li>

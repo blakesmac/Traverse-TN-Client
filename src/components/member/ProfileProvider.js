@@ -17,8 +17,8 @@ export const ProfileProvider = (props) => {
         .then(setProfile);
     };
 
-    const getTripsByMember = (id) => {
-        return fetch(`http://localhost:8000/members/${id}/trips`, {
+    const getTripsByMember = (memberId) => {
+        return fetch(`http://localhost:8000/trips/${memberId}`, {
             headers: {
                 Authorization: `Token ${localStorage.getItem("tt_token")}`,
             },

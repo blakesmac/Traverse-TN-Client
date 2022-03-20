@@ -4,6 +4,7 @@ import { TripContext } from "./TripProvider"
 import { useHistory } from "react-router"
 import { RiverContext } from "../river/RiverProvider";
 import { PlaceContext } from "../place/PlaceProvider";
+import { ProfileContext } from "../member/ProfileProvider";
 
 
 export const TripList = () => {
@@ -11,8 +12,13 @@ export const TripList = () => {
     const [trip, setTrip] = useState([])
     const { rivers, getRivers } = useContext(RiverContext);
     const { places, getPlaces } = useContext(PlaceContext);
+    const {profile, getProfile} = useContext(ProfileContext);
     const history = useHistory()
     const {tripId} =useParams()
+
+    useEffect(()=> {
+        getProfile();
+    }, [])
 
     useEffect(() => {
         getTrips();
@@ -20,8 +26,8 @@ export const TripList = () => {
         getPlaces();
     }, []);
 
-    const handleDelete = () => {
-        deleteTrip(tripId)
+    const handleDelete = (e) => {
+        deleteTrip(e.target.id)
         .then(() => {
             history.push(`/trip`)
         })
@@ -42,9 +48,27 @@ export const TripList = () => {
 
             <article>
                 <h1>Current Trips</h1>
+                <div>
+                <button
+                    onClick={() => history.push("/trips/new")}>
+                    Create New Trip
+                </button>
+                </div> <br />
                 {trips.map((trip) => {
                     return (
                         <section key={`trip--${trip.id}`}>
+                            <section className="trip_section">
+                                <div> {trip.title}</div>
+                                <div> River: {trip.river.title}</div>
+                                <div> Place: {trip.place.about}</div>
+                                <div> Date: {trip.date}</div>
+                                <div> memberId: {trip.member?.user}</div>
+                            </section>
+                            <div>
+                                <div id={trip.id} className="button" onClick={(e) => handleDelete(e)}>
+                                    Delete
+                                </div>
+                            </div>
                             <div>
                                 <button
                                     onClick={() => history.push(`/trip/edit/${trip.id}`)}
@@ -52,30 +76,11 @@ export const TripList = () => {
                                     Edit
                                 </button>
                             </div>
-                            <section className="trip_section">
-                                <div> Title: {trip.title}</div>
-                                <div> River: {trip.river.title}</div>
-                                <div> Place: {trip.place.about}</div>
-                                <div> Date: {trip.date}</div>
-                                <div> memberId: {trip.member?.user}</div>
-                            </section>
-                            <div>
-                                <button onClick={event => {
-                                    event.preventDefault()
-                                    handleDelete()
-                                }}>
-                                    Delete
-                                </button>
-                            </div>
                         </section>
                     )
                 })}
             </article>
             <div>
-                <button
-                    onClick={() => history.push("/trips/new")}>
-                    Create New Trip
-                </button>
             </div>
         </>
     );
