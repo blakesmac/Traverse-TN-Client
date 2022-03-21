@@ -16,18 +16,22 @@ import { ProfileList } from "./member/ProfileList"
 // Favorites Stretch
 import { FavoriteProvider } from "./favorite/FavoriteProvider"
 import { FavoritesList } from "./favorite/FavoriteList"
+import { HomePage } from "./Home/HomePage"
 
 export const ApplicationViews = () => {
     return <>
         <main style={{
             margin: "5rem 2rem",
-            backgroundColor: "lightgoldenrodyellow"
+            // backgroundColor: "rgb(18,19,20)"
         }}>
             <FavoriteProvider>
                 <ProfileProvider>
                     <TripProvider>
                         <RiverProvider>
                             <PlaceProvider>
+                                <Route exact path="/">
+                                    <HomePage />
+                                </Route>
                                 <Route exact path="/trips/new">
                                     <TripForm />
                                 </Route>

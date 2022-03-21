@@ -1,0 +1,104 @@
+.trip_list {
+    flex-basis: 25%;
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2em;
+    border: double black;
+    background-color: rgb(32,37,41);
+    font-style: bold;
+    width: 270px;
+    min-width: 10rem;
+    border-radius: 5px;
+    align-items: center;
+    font-family:monospace;
+    color:white;
+    box-shadow: 0px 0px 8px 1px rgba(91, 99, 102, 0.098); 
+    
+}
+
+.trip_river {
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trip_place {
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.trip_date {
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.trip_title {
+    padding-top: .3rem;
+    width: 100%;
+}
+
+.trip_editbtn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:0.3rem;
+    padding: 1em;
+    color: white;
+    background-color:darkslategray;
+    border-radius: 4px;
+    padding: 8px 12px;
+    border: #2e6da4;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.5;
+    
+}
+.trip_deletebutton  {
+    margin:0.3rem;
+    padding: 1em;
+    color: white;
+    background-color:darkslategray;
+    border-radius: 4px;
+    padding: 8px 12px;
+    border: #2e6da4;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.5;
+    text-decoration: none;
+
+}
+.input--wide {
+    background-color: gray;
+    margin: 1em;
+    width: 20em;
+    color: black;
+}
+.trip_form {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    border-radius: 8px;
+    border-style: ridge;
+    align-items: flex-start;
+    width: 550px;
+    margin: auto;
+    padding: 1em;
+    background-color:rgb(32,37,41);
+}
+.create_trip {
+    background: rgb(255, 255, 255);
+    border: rgb(10, 49, 50) solid 2px;
+    border-radius: 15px;
+    color: rgb(10, 49, 50);
+    margin: 0 10px 0 0;
+    padding: 1.5px 15px 1.5px 15px;
+    justify-content: center;
+    text-align: center;
+}
