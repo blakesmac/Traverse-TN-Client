@@ -3,7 +3,7 @@ import { TripContext } from "./TripProvider"
 import { useHistory, useParams } from "react-router"
 import { RiverContext } from "../river/RiverProvider"
 import { PlaceContext } from "../place/PlaceProvider"
-
+import "./trip.css"
 
 
 export const TripForm = () => {
@@ -68,7 +68,7 @@ export const TripForm = () => {
 
     return (
         <>
-            <form>
+            <form className="trip_form">
                 <h2>Create New Trip</h2>
                 <fieldset>
                     <div>
@@ -110,7 +110,7 @@ export const TripForm = () => {
                                     key={place.id}
                                     value={place.id}
                                 >
-                                    {place.about}
+                                    {place.address}
                                 </option>
                             ))}
                         </select>
@@ -134,39 +134,3 @@ export const TripForm = () => {
 
 
 }
-
-
-{/* <button size="sm" className="btn_tripform" disabled={isLoading} onClick={event => {
-                    event.preventDefault()
-                    saveTrip()
-                }}>
-                    {tripId ? <>Save Trip</> : <>Add Trip</> }
-                </button> */}
-
-{/* <button
-        type="submit"
-        onClick={(evt) => {
-          // Prevent form from being submitted
-          evt.preventDefault();
-
-          const post = {
-            id: parseInt(postId),
-            categoryId: parseInt(currentPost.categoryId),
-            title: currentPost.title,
-            publicationDate: currentPost.publicationDate,
-            imageUrl: currentPost.imageUrl,
-            content: currentPost.content,
-          };
-          // Send POST request to your API
-          {
-            postId ? editPostById(post).then(() => history.push("/posts")) :
-              createPost(post).then(() => history.push("/posts"))
-          }
-        }}
-        className="create-post-button"
-      >
-        Create
-      </button>
-    </form>
-  );
-}; */}

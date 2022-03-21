@@ -40,12 +40,11 @@ export const TripProvider = (props) => {
             .then(getTrips)
     };
 
-    const deleteTrip = (tripId) => {
-        return fetch(`http://localhost:8000/trips/${tripId}`, {
+    const deleteTrip = (id) => {
+        return fetch(`http://localhost:8000/trips/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Token ${localStorage.getItem("tt_token")}`,
-                "Content-Type": "application/json"
             },
         })
             .then(getTrips)

@@ -13,6 +13,7 @@ export const ProfileList = () => {
     useEffect(() => {
         if (profile.member) {
             getTripsByMember(profile.member.id)
+            
 
         }
     }, [profile])
@@ -31,9 +32,9 @@ export const ProfileList = () => {
                 </div>
             </section>
             <section className="posts">
-                <div className="user_posts">
-                    Trips: {profile.member?.trip}
-                </div>
+                {/* <div className="user_posts">
+                    Trips: {profile.trip?.member}
+                </div> */}
             </section>
         </>
     )
