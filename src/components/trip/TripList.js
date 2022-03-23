@@ -45,18 +45,21 @@ export const TripList = () => {
     return (
         <>
 
-
-            <article>
-                <h1>Current Trips</h1>
-                <div>
+            <section class="trip_header">
+            <h1>Current Trips</h1>
+                
+            </section>
+            <div className="create_container">
                 <button className="create_trip"
                     onClick={() => history.push("/trips/new")}>
                     Plan Trip
                 </button>
-                </div> <br />
+                </div>
+            <article className="trip_list">
+                
                 {trips.map((trip) => {
                     return (
-                        <section className="trip_list" key={`trip--${trip.id}`}>
+                        <section className="trip_info" key={`trip--${trip.id}`}>
                             <section className="trip_section">
                                 <h3 className="trip_title"> {trip.title}</h3>
                                 <div className="trip_river"> River: {trip.river.title}</div>

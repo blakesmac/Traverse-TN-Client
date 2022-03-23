@@ -1,8 +1,19 @@
+.rivers {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3em;
+    justify-content: space-evenly;
+}
+
+
+
+
 .river_info {
     flex-basis: 25%;
     display: flex;
     margin: 1rem;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-around;
     padding: 2em;
@@ -32,7 +43,9 @@
     width: 200%;
     font-size: 20px;
 }
-
+.rivers_header {
+    text-align: center;
+}
 
 .river_animals {
     padding: 1rem 1rem 1rem 1rem;

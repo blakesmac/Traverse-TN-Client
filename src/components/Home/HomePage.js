@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Accordion, Carousel, Image } from "react-bootstrap";
 
-
+import "./home.css"
 
 export const HomePage = () => {
 

@@ -1,0 +1,27 @@
+.carouselItem {
+    margin: 1em;
+    padding: 3em;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    size: initial;
+}
+
+.carouselContainer {
+    display: flex;
+    margin: 0;
+    min-width: 100%;
+    height: 40rem;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.carouselImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: initial; 
+    overflow: hidden;
+    flex-wrap: wrap;
+    opacity: 65%;
+}
