@@ -1,4 +1,4 @@
-.trip_list {
+.trip_info {
     flex-basis: 25%;
     display: flex;
     margin: 1rem;
@@ -7,7 +7,7 @@
     justify-content: space-around;
     padding: 2em;
     border: double black;
-    background-color: rgb(32,37,41);
+    background-color: aquamarine;
     font-style: bold;
     width: 270px;
     min-width: 10rem;
@@ -17,6 +17,26 @@
     color:white;
     box-shadow: 0px 0px 8px 1px rgba(91, 99, 102, 0.098); 
     
+}
+
+.trip_header {
+    
+    text-align: center;
+    
+}
+.create_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.trip_list {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3em;
+    justify-content: space-evenly;
 }
 
 .trip_river {
@@ -96,7 +116,7 @@
     background: rgb(255, 255, 255);
     border: rgb(10, 49, 50) solid 2px;
     border-radius: 15px;
-    color: rgb(10, 49, 50);
+    color: rgb(17, 111, 114);
     margin: 0 10px 0 0;
     padding: 1.5px 15px 1.5px 15px;
     justify-content: center;

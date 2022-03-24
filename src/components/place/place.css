@@ -1,22 +1,29 @@
 .place {
     flex-basis: 25%;
     display: flex;
-    margin: 1rem;
-    flex-direction: column;
+    margin: 2rem;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-around;
-    padding: 2em;
+    padding: 3em;
     border: double black;
-    background-color: rgb(32,37,41);
+    background-color: aquamarine;
     font-style:normal;
-    width: 400px;
-    min-width: 10rem;
+    width: 450px;
+    min-width: 20rem;
     border-radius: 5px;
-    align-items: baseline;
+    align-items: flex-start;
     font-family: monospace;
     color:white;
     box-shadow: 0px 0px 8px 1px rgba(91, 99, 102, 0.098); 
     
+}
+.places {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3em;
+    justify-content: space-evenly;
 }
 
 .place_address {
@@ -25,6 +32,10 @@
     font-size: 20px;
 }
 
+.places_header {
+    text-align: center;
+    
+}
 
 .place_wildlife {
     padding: 1rem 1rem 1rem 1rem;
@@ -36,20 +47,11 @@
     display: flex;
     flex-wrap: wrap;
 }
-.river_address {
-    padding: 1rem 1rem 1rem 1rem;
-    display: flex;
-    flex-wrap: wrap;
-}
+
 .place_visitors {
     padding: 1rem 1rem 1rem 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-}
-.river_about {
-    padding: 1rem 1rem 1rem 1rem;
-    display: flex;
-    flex-wrap: wrap;
 }
