@@ -18,7 +18,7 @@
     justify-content:space-around;
     padding: 2em;
     border: double black;
-    background-color: rgb(32,37,41);
+    background-color: aquamarine;
     font-style:normal;
     width: 400px;
     min-width: 10rem;
@@ -66,8 +66,10 @@
     padding: 1rem 1rem 1rem 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
+    flex-direction: column;
+    
 }
 .river_about {
     padding: 1rem 1rem 1rem 1rem;

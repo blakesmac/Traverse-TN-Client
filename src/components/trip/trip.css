@@ -7,7 +7,7 @@
     justify-content: space-around;
     padding: 2em;
     border: double black;
-    background-color: rgb(32,37,41);
+    background-color: aquamarine;
     font-style: bold;
     width: 270px;
     min-width: 10rem;
@@ -116,7 +116,7 @@
     background: rgb(255, 255, 255);
     border: rgb(10, 49, 50) solid 2px;
     border-radius: 15px;
-    color: rgb(10, 49, 50);
+    color: rgb(17, 111, 114);
     margin: 0 10px 0 0;
     padding: 1.5px 15px 1.5px 15px;
     justify-content: center;
